@@ -14,6 +14,23 @@ function number_to(id, from, to, duration) {
 
 $(document).ready(function () {
 
+    $("#toggler").click(function(e) {
+        $(".navbar-collapse").toggleClass("show");
+    });
+
+    $(".nav-link.smooth-scroll").click(function(e){
+        e.preventDefault();
+        $(".nav-link.smooth-scroll").removeClass("active");
+        $(".navbar-collapse").removeClass("show");
+        $(this).addClass("active");
+    });
+    $("#back-to-top, .navbar-brand").click(function(e){
+        e.preventDefault();
+        $(".nav-link.smooth-scroll").removeClass("active");
+        $(".navbar-collapse").removeClass("show");
+        $(".home").addClass("active");
+    });
+
     number_to("year", 0, new Date().getFullYear() - 2014, 2000);
     number_to("cars", 0, 100, 2000);
     number_to("weight", 0, 250, 2000);
